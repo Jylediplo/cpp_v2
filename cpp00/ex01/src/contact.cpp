@@ -27,15 +27,17 @@ Contact Contact::fill_form(int *i)
     Contact contact;
 
     
+	*i == 8 ? contact.id = 0 : contact.id = *i;
     std::cout << "first name : ";
     std::cin >> contact.firstName;
-	*i == 8 ? contact.id = 0 : contact.id = *i;
+    std::cout << "last name : ";
+    std::cin >> contact.lastName;
     std::cout << "nickname : ";
     std::cin >> contact.nickName;
-    // std::cout << "phone : ";
-    // std::cin >> contact.phone;
-    // std::cout << "secret : ";
-    // std::cin >> contact.secret;
+    std::cout << "phone : ";
+    std::cin >> contact.phone;
+    std::cout << "darkest secret : ";
+    std::cin >> contact.secret;
     std::cout << "\033c";
     if (std::cin.eof() || std::cin.fail())
         return (contact);
@@ -43,7 +45,7 @@ Contact Contact::fill_form(int *i)
     return (contact);
 }
 
-void    Phonebook::add_contact(Contact contact, Phonebook *phonebook, int *i)
+void    PhoneBook::add_contact(Contact contact, PhoneBook *phonebook, int *i)
 {
 
 	(void)phonebook;
@@ -59,7 +61,7 @@ void    Phonebook::add_contact(Contact contact, Phonebook *phonebook, int *i)
 }
 
 
-void Phonebook::show_list(Phonebook *phonebook, int *i)
+void PhoneBook::show_list(PhoneBook *phonebook, int *i)
 {
     Contact contact;
 
@@ -105,19 +107,22 @@ int choose_index(int *i)
 
 void Contact::all_infos(Contact contact)
 {
-    std::cout << contact.firstName << "\n";
-    std::cout << contact.nickName << "\n";
-    std::cout << "\n";
+    std::cout << contact.firstName << std::endl;
+    std::cout << contact.lastName << std::endl;
+    std::cout << contact.nickName << std::endl;
+    std::cout << contact.phone << std::endl;
+    std::cout << contact.secret << std::endl;
+    std::cout << std::endl;
 }
 
-void Phonebook::display_all_infos(Phonebook *phonebook, int index)
+void PhoneBook::display_all_infos(PhoneBook *phonebook, int index)
 {
     Contact contact;
 
     contact.all_infos(phonebook->contacts[index]);
 }
 
-int    manage_choice(int choice, Phonebook *phonebook, int *i)
+int    manage_choice(int choice, PhoneBook *phonebook, int *i)
 {
     Contact contact;
     int index;
@@ -164,7 +169,12 @@ void Contact::display_index(Contact contact)
     std::cout << contact.id;
     std::cout << "| ";
     std::cout << std::setw(9) << std::right << format_field(contact.firstName) << "| "
-              << std::setw(9) << std::right << format_field(contact.nickName) << "| " << std::endl;
+              << std::setw(9) << std::right << format_field(contact.lastName) << "| " 
+              << std::setw(9) << std::right << format_field(contact.nickName) << "| "
+              << std::setw(9) << std::right << format_field(contact.phone) << "| "
+              << std::setw(9) << std::right << format_field(contact.secret) << "| "
+              << std::endl;
+
 }
 
 int main(void)
@@ -173,7 +183,7 @@ int main(void)
     int i;
     int loop;
     Contact contact;
-    Phonebook phonebook;
+    PhoneBook phonebook;
     loop = 1;
 
     i = 0;

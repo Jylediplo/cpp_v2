@@ -22,14 +22,14 @@ class Contact
 
 ////////////////////////////
 
-class Phonebook 
+class PhoneBook
 {
     private:
         Contact contacts[8];
     public:
-        void    add_contact(Contact contact, Phonebook *phonebook, int *i);
-        void    show_list(Phonebook *phonebook, int *i);    
-        void    display_all_infos(Phonebook *phonebook, int index);
+        void    add_contact(Contact contact, PhoneBook *phonebook, int *i);
+        void    show_list(PhoneBook *phonebook, int *i);    
+        void    display_all_infos(PhoneBook *phonebook, int index);
 }; 
 
 #endif
