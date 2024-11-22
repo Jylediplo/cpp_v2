@@ -12,15 +12,15 @@ CC = c++ -std=c++98
 
 CFLAGS = -Wall -Wextra -Werror
 
-HEADER = contact.hpp
+HEADER = Contact.hpp
 
 all		:
 	@make --no-print-directory ${NAME}
 
-${OBJS}	:	${OBJ_D}%.o: ${SRC_D}%.cpp headers/contact.hpp
+${OBJS}	:	${OBJ_D}%.o: ${SRC_D}%.cpp headers/Contact.hpp
 	${CC}	${CFLAGS} -c $< -o $@
 
-${NAME}	:	${OBJ_D} ${OBJS} Makefile headers/contact.hpp
+${NAME}	:	${OBJ_D} ${OBJS} Makefile headers/Contact.hpp
 	${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
 ${OBJ_D}:

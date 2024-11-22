@@ -1,4 +1,4 @@
-#include "../headers/contact.hpp"
+#include "../headers/Contact.hpp"
 
 int menu()
 {
